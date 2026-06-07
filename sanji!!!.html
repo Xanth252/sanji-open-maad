@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sanjana</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#111827;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+}
+
+.card{
+    background:#1f2937;
+    border-radius:16px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    animation:fadeIn 1s ease;
+}
+
+h1{
+    margin-bottom:15px;
+    font-size:2rem;
+}
+
+p{
+    line-height:1.8;
+    color:#d1d5db;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:12px 24px;
+    border-radius:10px;
+    font-size:1rem;
+}
+
+.next-btn{
+    background:#2563eb;
+    color:white;
+    margin-top:25px;
+}
+
+.apology,
+.question,
+.success{
+    display:none;
+}
+
+.question{
+    position:relative;
+    min-height:250px;
+}
+
+.btns{
+    margin-top:30px;
+}
+
+.yes{
+    background:#16a34a;
+    color:white;
+    margin-right:10px;
+}
+
+.no{
+    background:#dc2626;
+    color:white;
+    position:absolute;
+}
+
+.success h2{
+    color:#4ade80;
+    margin-bottom:15px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:600px){
+
+    .card{
+        padding:25px;
+    }
+
+    h1{
+        font-size:1.7rem;
+    }
+
+    .no{
+        position:fixed;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="card birthday" id="birthday">
+
+<h1>🎂 Happy Birthday Sanjana 🎂</h1>
+
+<p>
+Wishing you a wonderful birthday filled with happiness,
+good memories, lots of laughter, and everything you enjoy.
+Hope you have an amazing year ahead.
+</p>
+
+<button class="next-btn" onclick="showApology()">
+Open Birthday Message
+</button>
+
+</div>
+
+<div class="card apology" id="apology">
+
+<h1>💌 A Small Message</h1>
+
+<p>
+SANJI!!!! SORRY LA LE, MANSHIK YAK AAGTI,
+I DID NOT KNOW THAT I WAS PUSHING UR BUTTONS OTHERWISE I WOULDN'T HAVE DONE THAT.
+<br><br>
+
+I KNOW U THINK THAT CREATING THIS WAS TOO CRINGE FOR YOU BUUT COULDN'T THINK OF ANYTHING ELSE TO DO THAT WOULD MAKE U TALK TO ME.
+<br><br>
+
+WELL, SORRY AGAIN FOR BEING AN ASSHOLE AND SPOILING YOUR MOOD.
+<br><br>
+
+I WON'T CALL U OR TEXT U AGAIN UNLESS U WANT ME TO, PROMISE!
+<br><br>
+
+DON'T LET A STUPID IDIOT LIKE ME SPOIL UR BIRTHDAY.
+U HAVE FUN.
+<br><br>
+
+HAPPY BIRTHDAY AGAIN BABY DOLL!! ❤️
+</p>
+
+<button class="next-btn" onclick="showQuestion()">
+One Last Question
+</button>
+
+</div>
+
+<div class="card question" id="question">
+
+<h1>Do you accept my apology? 🥺</h1>
+
+<div class="btns">
+
+<button class="yes" onclick="accepted()">
+Yes
+</button>
+
+<button class="no" id="noBtn">
+No
+</button>
+
+</div>
+
+</div>
+
+<div class="card success" id="success">
+
+<h2>🎉 Thank You! 🎉</h2>
+
+<p>
+Yay! That's all I wanted to know.
+Now go enjoy your birthday and have an amazing day ❤️
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function showApology(){
+    document.getElementById("birthday").style.display="none";
+    document.getElementById("apology").style.display="block";
+}
+
+function showQuestion(){
+    document.getElementById("apology").style.display="none";
+    document.getElementById("question").style.display="block";
+}
+
+function accepted(){
+    document.getElementById("question").style.display="none";
+    document.getElementById("success").style.display="block";
+}
+
+const noBtn = document.getElementById("noBtn");
+
+function moveButton(){
+
+    const maxX = window.innerWidth - 120;
+    const maxY = window.innerHeight - 80;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
+
+</script>
+
+</body>
+</html>
